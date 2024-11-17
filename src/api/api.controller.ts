@@ -1,5 +1,5 @@
 import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
-import { OcrService } from 'src/ocr/ocr.service';
+import { OcrService } from '../ocr/ocr.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { FileValidatorPipe } from './pipes/filevalidator.pipe';
 
@@ -30,7 +30,7 @@ export class ApiController {
         new FileValidatorPipe(),
     ) file: Express.Multer.File) : object {
         return {
-            text: this.ocrRecognition.extractTextFromImagee(file)
+            text: this.ocrRecognition.extractTextFromImage(file)
         };
     }
 

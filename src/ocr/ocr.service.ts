@@ -12,7 +12,7 @@ export class OcrService {
      *   Image
      * @returns 
      */
-    public extractTextFromImagee(file: Express.Multer.File) : string {
+    public extractTextFromImage(file: Express.Multer.File) : string {
         return 'Text';
     }
 
