@@ -26,12 +26,14 @@ export class ApiController {
      */
     @Post()
     @UseInterceptors(FileInterceptor('file'))
-    extractTextFromImagee(@UploadedFile(
+    async extractTextFromImagee(@UploadedFile(
         new FileValidatorPipe(),
-    ) file: Express.Multer.File) : object {
-        return {
-            text: this.ocrRecognition.extractTextFromImage(file)
-        };
+    ) file: Express.Multer.File) : Promise<object> {
+        return this.ocrRecognition.extractTextFromImage(file).then(function (text) {
+            return {
+                text: text
+            };
+        });
     }
 
 }
