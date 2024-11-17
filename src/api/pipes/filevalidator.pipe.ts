@@ -4,6 +4,7 @@ const ALLOWED_FILE_TYPES = [
   'image/jpeg',
   'image/png',
   'image/jpg',
+  'application/octet-stream'
 ];
 
 /**
